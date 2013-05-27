@@ -168,7 +168,8 @@
 	          '<pre class="qq-upload-drop-area"><span>{dragZoneText}</span></pre>' +
 	          '<div class="qq-upload-button btn btn-success">{uploadButtonText}</div>' +
 	          '<div class="tips">5M, jpg, png, jpeg</div>'+
-	          '<span class="qq-drop-processing"><span>{dropProcessingText}</span><span class="qq-drop-processing-spinner"></span></span>' +
+	          '<span class="qq-drop-processing"><span>{dropProcessingText}</span>'+
+	          '<span class="qq-drop-processing-spinner"></span></span>'+ 
 	          '</div>'+
 	          '<div><ul class="qq-upload-list"></ul></div>',
           classes: {
@@ -178,17 +179,19 @@
         }).on('complete', function(event, id, fileName, responseJSON) {
           if (responseJSON.success) {
             $('#imgshow').append(
-                    '<div class="alert item" id="'+responseJSON.id+'">'+
-                      '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
-                      '<div class="row">'+
-                        '<div class="span2">'+
-                          '<img src="<%=request.getContextPath()%>'+responseJSON.url+'" style="height:100px;width:100xp" alt="">'+
-                        '</div>'+
-                        '<div class="span4">'+
-                          '<textarea name="desc" id="'+responseJSON.id+"-desc"+'" class="span4 photodesc" rows="5"></textarea>'+ 
-                        '</div>'+
-                      '</div>'+
-                    '</div>');
+              '<div class="alert item" id="'+responseJSON.id+'">'+
+              '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
+              '<div class="row">'+
+              '<div class="span2">'+
+              '<img src="<%=request.getContextPath()%>'+
+              responseJSON.url+'" style="height:100px;width:100xp" alt="">'+
+              '</div>'+
+              '<div class="span4">'+
+              '<textarea name="desc" id="'+
+              responseJSON.id+"-desc"+'" class="span4 photodesc" rows="5"></textarea>'+ 
+              '</div>'+
+              '</div>'+
+              '</div>');
           }
         });
 
